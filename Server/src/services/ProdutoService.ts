@@ -1,6 +1,7 @@
 import Produto from "../model/Produto";
 import ProdutoRepository from "../repository/ProdutoRepository";
 import { badRequest, created, HttpResponse, notContent, ok } from "../utils/HttpResponses";
+import wss, { getDataToSend } from "../ws/WsServer";
 
 
 class ProdutoService{
@@ -17,6 +18,10 @@ class ProdutoService{
         if(!data) return badRequest({ message : "não foi possível cadastrar o produto" });
 
         //send message to websocket update list in package AI
+        const dataSend = await getDataToSend();
+        wss.on("open", (ws) => {
+            ws.send(JSON.stringify(dataSend));
+        })
 
         return created(data);
     }
@@ -26,6 +31,10 @@ class ProdutoService{
         if(!data) return badRequest({ message : "não foi possível atualizar o produto" });
 
         //send message to websocket update list in package AI
+        const dataSend = await getDataToSend();
+        wss.on("open", (ws) => {
+            ws.send(JSON.stringify(dataSend));
+        })
 
         return ok(data);
     }
@@ -35,6 +44,10 @@ class ProdutoService{
         if(!data) return badRequest({ message : "não foi possível deletar o produto" });
 
         //send message to websocket update list in package AI
+        const dataSend = await getDataToSend();
+        wss.on("open", (ws) => {
+            ws.send(JSON.stringify(dataSend));
+        })
 
         return notContent();
     }
