@@ -3,10 +3,15 @@ import { Agent } from '@openai/agents';
 import { makeWASocket, useMultiFileAuthState, fetchLatestBaileysVersion, DisconnectReason } from '@whiskeysockets/baileys';
 import Pino from 'pino';
 import qrcode from 'qrcode';
-import { createToolGetInfo, getInfo } from './utils/createTool.js';
+import { createToolGetInfo } from './utils/createTool.js';
 import { askAgent } from './agent/askAgent.js';
+import { initWsClient } from './ws/wsClient.js';
+import { initWsServer } from './ws/wsServer.js';
 
 async function main() {
+
+    await initWsServer();
+    await initWsClient();
 
     const toolGetInfo = await createToolGetInfo();
 
