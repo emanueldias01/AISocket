@@ -1,30 +1,27 @@
-import WebSocket from "ws";
+import WebSocket, { WebSocketServer } from 'ws';
 import ProdutoRepository from "../repository/ProdutoRepository";
-import ProdutoSend from "./ProdutoSendWs";
+import Produto from '../model/Produto';
 
 const PORT : number = Number(process.env.PORT_WS) || 3333;
 
 
 export const getDataToSend = async () => {
-    const data = await ProdutoRepository.getAllProdutos();
-    const sendData: ProdutoSend[] = data.map(p => ({
-        codigo : p.codigo,
-        nome : p.nome,
-        estoque : p.estoque,
-        horarioAlteracao : new Date()
-    }));
 
-    return sendData
+    const data = await ProdutoRepository.getAllProdutos();
+    return data
 }
 
-const wss = new WebSocket.Server({
+const wss = new WebSocketServer({
     port : PORT
 });
 
-wss.on("connection", async (ws) => {
-    console.log("Cliente conectado");
-    const sendData = await getDataToSend();
-    ws.send(JSON.stringify(sendData));
-})
+export const intiWebSocketServer = async () => {
+        wss.on("connection", async (ws) => {
+        console.log("Cliente conectado");
+        const sendData = await getDataToSend();
+        ws.send(JSON.stringify(sendData));
+    })
+}
+
 
 export default wss;

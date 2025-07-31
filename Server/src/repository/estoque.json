@@ -6,7 +6,8 @@
       "quantidade": 25,
       "localizacao": "Armazém A1",
       "ativo": true
-    }
+    },
+    "horarioAlteracao": "31/07/2025, 01:08:16"
   },
   {
     "codigo": "TCL-0002",
@@ -15,7 +16,8 @@
       "quantidade": 120,
       "localizacao": "Prateleira B4",
       "ativo": true
-    }
+    },
+    "horarioAlteracao": "31/07/2025, 01:08:16"
   },
   {
     "codigo": "MSE-0003",
@@ -24,7 +26,8 @@
       "quantidade": 0,
       "localizacao": "Prateleira C2",
       "ativo": false
-    }
+    },
+    "horarioAlteracao": "31/07/2025, 01:08:16"
   },
   {
     "codigo": "MON-0004",
@@ -33,7 +36,8 @@
       "quantidade": 47,
       "localizacao": "Armazém A3",
       "ativo": true
-    }
+    },
+    "horarioAlteracao": "31/07/2025, 01:08:16"
   },
   {
     "codigo": "CDR-0005",
@@ -42,6 +46,7 @@
       "quantidade": 8,
       "localizacao": "Armazém B2",
       "ativo": true
-    }
+    },
+    "horarioAlteracao": "31/07/2025, 01:08:16"
   }
 ]
