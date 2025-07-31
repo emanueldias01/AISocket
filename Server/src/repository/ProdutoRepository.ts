@@ -29,7 +29,7 @@ class ProdutoRepository{
         const data = fs.readFileSync(this.pathJson, "utf-8");
         const list : Produto[] = JSON.parse(data);
 
-        const search = list.find(p => p.nome === produto.nome);
+        const search = list.find(p => p.codigo === produto.codigo);
         if(!search) return null;
 
         search.nome = produto.nome != null ? produto.nome : search.nome;
@@ -41,11 +41,11 @@ class ProdutoRepository{
         return produto;
     }
 
-    static async deleteProduto(nome : string) : Promise<Produto | null> {
+    static async deleteProduto(codigo : string) : Promise<Produto | null> {
         const data = fs.readFileSync(this.pathJson, "utf-8");
         const list : Produto[] = JSON.parse(data);
 
-        const index = list.findIndex(p => p.nome === nome);
+        const index = list.findIndex(p => p.codigo === codigo);
 
         if(index === -1) return null;
 

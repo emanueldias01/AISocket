@@ -25,7 +25,7 @@ class ProdutoController {
     }
 
     static async deleteProduto(req : Request, res : Response) {
-        const nome = req.params.nome;
+        const nome = req.params.codigo;
         const response = await ProdutoService.deleteProduto(nome);
         
         return res.status(response.status).json(response.body);

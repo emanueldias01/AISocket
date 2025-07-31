@@ -30,8 +30,8 @@ class ProdutoService{
         return ok(data);
     }
 
-    static async deleteProduto(nome : string) : Promise<HttpResponse> {
-        const data = await ProdutoRepository.deleteProduto(nome);
+    static async deleteProduto(codigo : string) : Promise<HttpResponse> {
+        const data = await ProdutoRepository.deleteProduto(codigo);
         if(!data) return badRequest({ message : "não foi possível deletar o produto" });
 
         //send message to websocket update list in package AI

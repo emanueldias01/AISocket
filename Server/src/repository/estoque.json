@@ -1,5 +1,6 @@
 [
   {
+    "codigo": "NBK-0001",
     "nome": "Notebook Dell Inspiron 15",
     "estoque": {
       "quantidade": 25,
@@ -8,6 +9,7 @@
     }
   },
   {
+    "codigo": "TCL-0002",
     "nome": "Teclado Mecânico Redragon Kumara",
     "estoque": {
       "quantidade": 120,
@@ -16,6 +18,7 @@
     }
   },
   {
+    "codigo": "MSE-0003",
     "nome": "Mouse Logitech M170",
     "estoque": {
       "quantidade": 0,
@@ -24,6 +27,7 @@
     }
   },
   {
+    "codigo": "MON-0004",
     "nome": "Monitor LG 24'' Full HD",
     "estoque": {
       "quantidade": 47,
@@ -32,6 +36,7 @@
     }
   },
   {
+    "codigo": "CDR-0005",
     "nome": "Cadeira Gamer ThunderX3",
     "estoque": {
       "quantidade": 8,

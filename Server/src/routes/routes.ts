@@ -5,4 +5,4 @@ export const router = Router();
 router.get("/produtos", ProdutoController.getAllProdutos);
 router.post("/produtos", ProdutoController.createProduto);
 router.put("/produtos", ProdutoController.updateProduto);
-router.delete("/produtos/:nome", ProdutoController.deleteProduto);
+router.delete("/produtos/:codigo", ProdutoController.deleteProduto);
