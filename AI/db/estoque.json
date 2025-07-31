@@ -1,0 +1,42 @@
+[
+  {
+    "nome": "Notebook Dell Inspiron 15",
+    "estoque": {
+      "quantidade": 25,
+      "localizacao": "Armazém A1",
+      "ativo": true
+    }
+  },
+  {
+    "nome": "Teclado Mecânico Redragon Kumara",
+    "estoque": {
+      "quantidade": 120,
+      "localizacao": "Prateleira B4",
+      "ativo": true
+    }
+  },
+  {
+    "nome": "Mouse Logitech M170",
+    "estoque": {
+      "quantidade": 0,
+      "localizacao": "Prateleira C2",
+      "ativo": false
+    }
+  },
+  {
+    "nome": "Monitor LG 24'' Full HD",
+    "estoque": {
+      "quantidade": 47,
+      "localizacao": "Armazém A3",
+      "ativo": true
+    }
+  },
+  {
+    "nome": "Cadeira Gamer ThunderX3",
+    "estoque": {
+      "quantidade": 8,
+      "localizacao": "Armazém B2",
+      "ativo": true
+    }
+  }
+]
