@@ -19,7 +19,7 @@ export const created = (body : any) : HttpResponse => {
 
 export const badRequest = (body : any) : HttpResponse => {
     return {
-        status: 200,
+        status: 400,
         body : body
     }
     
