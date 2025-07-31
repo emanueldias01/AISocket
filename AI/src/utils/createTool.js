@@ -4,7 +4,7 @@ import { z } from 'zod';
 
 
 export const getInfo = async () => {
-    const data = fs.readFileSync("./AI/db/estoque.json", "utf-8");
+    const data = fs.readFileSync("./AI/src/db/estoque.json", "utf-8");
     const realData = JSON.parse(data);
 
     return realData;
