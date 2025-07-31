@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+import { sock } from "../../index.js";
 
 export const initWsClient = async () => {
 
@@ -15,14 +16,18 @@ export const initWsClient = async () => {
         console.log("conectou")
     });
 
-    socket.on("message", (data) => {
-        const dataReceived = JSON.parse(data);
-        const filePath = path.join(__dirname, "..", "db", "estoque.json");
-        fs.mkdirSync(path.dirname(filePath), { recursive: true });
-        fs.writeFileSync(filePath, JSON.stringify(dataReceived, null, 2), "utf8");
+    socket.on("message", async (data) => {
+        console.log("recebi mensagem");
+        try{
+            const dataReceived = JSON.parse(data);
+            const filePath = path.join(__dirname, "..", "db", "estoque.json");
+            fs.mkdirSync(path.dirname(filePath), { recursive: true });
+            fs.writeFileSync(filePath, JSON.stringify(dataReceived, null, 2), "utf8");
+        }catch(erro){
+            await sock.sendMessage(process.env.NUMBER_ID, { text : data.toString() });
+        }
         
-
-
+        
     });
 
     socket.on("close", () => {

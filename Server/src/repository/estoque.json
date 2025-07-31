@@ -3,11 +3,11 @@
     "codigo": "NBK-0001",
     "nome": "Notebook Dell Inspiron 15",
     "estoque": {
-      "quantidade": 25,
+      "quantidade": 0,
       "localizacao": "Armazém A1",
       "ativo": true
     },
-    "horarioAlteracao": "31/07/2025, 01:08:16"
+    "horarioAlteracao": "Thu Jul 31 2025 01:43:25 GMT-0300 (Horário Padrão de Brasília)"
   },
   {
     "codigo": "TCL-0002",

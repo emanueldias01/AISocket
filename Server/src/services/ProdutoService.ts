@@ -19,9 +19,11 @@ class ProdutoService{
 
         //send message to websocket update list in package AI
         const dataSend = await getDataToSend();
-        wss.on("open", (ws) => {
-            ws.send(JSON.stringify(dataSend));
-        })
+        wss.clients.forEach((client) => {
+            if (client.readyState === WebSocket.OPEN) {
+                client.send(JSON.stringify(dataSend));
+            }
+        });
 
         return created(data);
     }
@@ -32,9 +34,18 @@ class ProdutoService{
 
         //send message to websocket update list in package AI
         const dataSend = await getDataToSend();
+        wss.clients.forEach((client) => {
+            if (client.readyState === WebSocket.OPEN) {
+                if (data.estoque.quantidade === 0) {
+                    client.send(`PRODUTO FORA DE ESTOQUE: ${data.nome} | HORÁRIO EM QUE ACABOU: ${data.horarioAlteracao}`);
+                }
+                client.send(JSON.stringify(dataSend));
+            }
+        });
         wss.on("open", (ws) => {
+            console.log("opaaaaa");
             ws.send(JSON.stringify(dataSend));
-        })
+        });
 
         return ok(data);
     }
@@ -45,9 +56,11 @@ class ProdutoService{
 
         //send message to websocket update list in package AI
         const dataSend = await getDataToSend();
-        wss.on("open", (ws) => {
-            ws.send(JSON.stringify(dataSend));
-        })
+        wss.clients.forEach((client) => {
+            if (client.readyState === WebSocket.OPEN) {
+                client.send(JSON.stringify(dataSend));
+            }
+        });
 
         return notContent();
     }

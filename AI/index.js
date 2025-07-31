@@ -7,6 +7,8 @@ import { createToolGetInfo } from './src/utils/createTool.js';
 import { askAgent } from './src/agent/askAgent.js';
 import { initWsClient } from './src/ws/wsClient.js';
 
+export let sock = null;
+
 async function main() {
 
     await initWsClient();
@@ -29,7 +31,7 @@ async function main() {
 async function connectToWhatsApp(agent) {
     const { state, saveCreds } = await useMultiFileAuthState('./auth_info')
     const { version } = await fetchLatestBaileysVersion()
-    const sock = makeWASocket({
+    sock = makeWASocket({
         version,
         auth: state,
         printQRInTerminal: false,
@@ -71,7 +73,7 @@ async function connectToWhatsApp(agent) {
                
             }
         }
-    })
+    });
 }
 
 main();
