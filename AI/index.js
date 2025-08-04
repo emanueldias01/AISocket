@@ -38,32 +38,32 @@ async function connectToWhatsApp(agent) {
         logger: Pino({ level: 'silent' }),
     })
 
-    sock.ev.on('creds.update', saveCreds)
+    sock.ev.on('creds.update', saveCreds);
 
     sock.ev.on('connection.update', async (update) => {
-        const { connection, lastDisconnect, qr } = update
+        const { connection, lastDisconnect, qr } = update;
 
         if (qr) {
-            const qrImage = await qrcode.toString(qr, { type: 'small' })
-            console.log(qrImage)
+            const qrImage = await qrcode.toString(qr, { type: 'small' });
+            console.log(qrImage);
         }
 
         if (connection === 'open') {
             console.log('✅ Conectado ao WhatsApp!')
         } else if (connection === 'close') {
-            const shouldReconnect = lastDisconnect?.error?.output?.statusCode !== DisconnectReason.loggedOut
-            console.log('🔌 Conexão encerrada. Reconectar?', shouldReconnect)
-            if (shouldReconnect) connectToWhatsApp()
+            const shouldReconnect = lastDisconnect?.error?.output?.statusCode !== DisconnectReason.loggedOut;
+            console.log('🔌 Conexão encerrada. Reconectar?', shouldReconnect);
+            if (shouldReconnect) connectToWhatsApp();
         }
     })
 
     sock.ev.on('messages.upsert', async ({ messages, type }) => {
         if (type === 'notify') {
-            const msg = messages[0]
-            if (msg.key.fromMe) {
+            const msg = messages[0];
+            if (!msg.key.fromMe) {
                  if(msg.message?.conversation || msg.message?.extendedTextMessage?.text){
-                    const sender = msg.pushName || msg.key.remoteJid
-                    const text = msg.message?.conversation || msg.message?.extendedTextMessage?.text
+                    const sender = msg.pushName || msg.key.remoteJid;
+                    const text = msg.message?.conversation || msg.message?.extendedTextMessage?.text;
                     const senderId = msg.key.remoteJid
                     console.log(`📩 ${sender}: ${text}`)
 
