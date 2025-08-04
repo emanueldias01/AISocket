@@ -6,8 +6,7 @@
   "type": "module",
   "scripts": {
     "init:ai": "node --env-file=.env ./AI/index.js",
-    "init:api" : "tsx --env-file=.env ./Server/index.ts"
-    
+    "init:api": "tsx --env-file=.env ./Server/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +14,7 @@
   "dependencies": {
     "@openai/agents": "^0.0.14",
     "@whiskeysockets/baileys": "^6.7.18",
+    "axios": "^1.11.0",
     "express": "^5.1.0",
     "pino": "^9.7.0",
     "qrcode": "^1.5.4",

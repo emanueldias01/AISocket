@@ -1,13 +1,16 @@
 import { tool } from '@openai/agents-core';
-import fs from 'fs';
 import { z } from 'zod';
+import axios from 'axios';
 
 
 export const getInfo = async () => {
-    const data = fs.readFileSync("./AI/src/db/estoque.json", "utf-8");
-    const realData = JSON.parse(data);
-
-    return realData;
+    try{
+        const host = process.env.HOST;
+        const request = await axios.get(`${host}/api/v1/produtos`);
+        return request.data;
+    }catch(erro){
+        return "Erro ao buscar informação de produtos";
+    }
 }
 
 export const createToolGetInfo = async () => {

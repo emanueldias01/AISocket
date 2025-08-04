@@ -13,6 +13,16 @@ class ProdutoRepository{
         return list;
     }
 
+    static async getProductByCode(code : string) : Promise<Produto | null>{
+        const data = fs.readFileSync(this.pathJson, "utf-8");
+        const list : Produto[] = JSON.parse(data);
+
+        const find = list.find(p => p.codigo === code);
+        if(!find) return null;
+
+        return find;
+    }
+
     static async saveProduto(produto : ProdutoRequest) : Promise<Produto | null>{
         const data = fs.readFileSync(this.pathJson, "utf-8");
         const list : Produto[] = JSON.parse(data);
