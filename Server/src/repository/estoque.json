@@ -3,11 +3,11 @@
     "codigo": "NBK-0001",
     "nome": "Notebook Dell Inspiron 15",
     "estoque": {
-      "quantidade": 0,
+      "quantidade": 10,
       "localizacao": "Armazém A1",
-      "ativo": false
+      "ativo": true
     },
-    "horarioAlteracao": "Mon Aug 04 2025 10:37:47 GMT-0300 (Horário Padrão de Brasília)"
+    "horarioAlteracao": "Mon Aug 04 2025 10:47:41 GMT-0300 (Horário Padrão de Brasília)"
   },
   {
     "codigo": "TCL-0002",
@@ -48,15 +48,5 @@
       "ativo": true
     },
     "horarioAlteracao": "31/07/2025, 01:08:16"
-  },
-  {
-    "codigo": "AZ-001",
-    "nome": "Azeite",
-    "estoque": {
-      "quantidade": 120,
-      "localizacao": "Prateleira B4",
-      "ativo": true
-    },
-    "horarioAlteracao": "04/08/2025,, 10:22:25"
   }
 ]
